@@ -24,7 +24,47 @@ export default class MainScene extends Phaser.Scene {
     this.treeLayer.setCollisionByProperty({ collide: true });
     this.matter.world.convertTilemapLayer(this.treeLayer);
     this.treeLayer.setDepth(100);
+    
+    /*
+    // make a RenderTexture that is the size of the screen
+    const width= 2500
+    const height= 2500
 
+      const rt = this.make.renderTexture({
+        width,
+        height
+      },  true)
+      // fill it with black
+      rt.fill(0x000000, 1);
+      // draw the floorLayer into it
+      //rt.setDepth(99);
+      rt.draw(treeLayer2)
+      rt.draw(treeLayer)
+      
+      // set a dark blue tint
+      rt.setTint(0x0a2948);
+      
+      this.player = new Player({
+      scene: this,
+      x: 450,
+      y: 260,
+      texture: "slime",
+      frame: "slime-idle-0",
+    }); 
+    const vision = this.make.image({
+        x: this.player.x,
+        y: this.player.y,
+        key: 'vision',
+        add: false
+      })
+      
+      vision.scale = 2.5
+      
+      
+     //rt.mask = new Phaser.Display.Masks.BitmapMask(this, vision)
+	    //rt.mask.invertAlpha = true
+    */
+    
     console.log("create");
     this.player = new Player({
       scene: this,
