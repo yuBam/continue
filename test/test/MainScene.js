@@ -1,5 +1,7 @@
 import Player from "./Player.js";
-
+let time;
+let visions;
+let rts;
 export default class MainScene extends Phaser.Scene {
   constructor() {
     super("MainScene");
@@ -29,7 +31,7 @@ export default class MainScene extends Phaser.Scene {
     // make a RenderTexture that is the size of the screen
     const width= 2500
     const height= 2500
-
+time=0
       const rt = this.make.renderTexture({
         width,
         height
@@ -58,7 +60,7 @@ export default class MainScene extends Phaser.Scene {
         add: false
       })
       
-      vision.scale = 2.5
+      vision.scale = 0
       
       
      //rt.mask = new Phaser.Display.Masks.BitmapMask(this, vision)
@@ -88,5 +90,15 @@ export default class MainScene extends Phaser.Scene {
   
   update() {
     this.player.update();
+	  if(time<=1){
+    time+=0.1
+  }
+  
+  rts.setAlpha(time);
+    if (visions)
+	  { 
+		  visions.x= this.player.x
+		  visions.y = this.player.y
+	  }
   }
 }
